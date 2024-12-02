@@ -14,24 +14,58 @@
 #include <stdarg.h>
 #include <unistd.h>
 
+int ft_checkarg(va_arg type, char *c)
+{
+
+	if (var_arg == "%c")
+		ft_printchar(c);
+	if (va_arg == "%s")
+		ft_printstr(c);
+	if (va_arg == "%p")
+		ft_printadress( );
+	if (va_arg == "%d");
+		ft_printnbr( );	
+	if (va_arg == "%i");
+		ft_printnbr( );
+	if (va_arg == "%u")
+
+	if (va_arg == "%x") // hexademical en minuscule
+		ft_printnbrhexaminus( )
+	if (va_arg == "%X") // hexadecimal en maj
+		ft_printnbrhexamaj( );
+	if (va_arg == "%%") 
+		ft_printchar('%');
+
+
 int	ft_printf(const char *format, ...) 
 {
-	
+	va_start
 
+	ft_checkarg(va_arg) 
+
+	va_end
 }
 
-printf("", )
 
 int	main(void)
 {
-	char	test = 'S'
-
-			 //convertir int en char putnbr 
-			//convertir chat en int atoi 
-
+	char	testchar = 'S';
+	char	teststr = "ceci est un test";
+	int	testi = 2
+	char test
 	ft_printf("voici le resultat d un c = %c", test);
 	return(0);
 }
+% -> determine le format desortie
+%c = single char 
+%s = string 
+%p = adresse pointeur
+%d = decimal (base10) number 
+%i = integer base 10
+%u = unsigned decimal base 10 number 
+%x = hexadecimal (base 16) lowercase format 
+%X = hexadecimal (base 16) uppercase format 
+%% = percent sign
 
 
 
@@ -49,22 +83,7 @@ permet de copier les listes d arguments
 void	va_end(va_list ap);
 signaler qu on a fini de lire la liste d arguments
 
-
 malloc
 free
-
 write
-
-
 printf (man =  LANG=C man 3 printf )
-% -> determine le format desortie
-%c = single char 
-%s = string 
-%p = adresse pointeur
-%d = decimal (base10) number 
-%i = integer base 10
-%u = unsigned decimal base 10 number 
-%x = hexadecimal (base 16) lowercase format 
-%X = hexadecimal (base 16) uppercase format 
-%% = percent sign
-
