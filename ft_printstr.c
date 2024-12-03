@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printchar.c                                     :+:      :+:    :+:   */
+/*   ft_printstr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lduflot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/03 13:56:40 by lduflot           #+#    #+#             */
-/*   Updated: 2024/12/03 13:57:07 by lduflot          ###   ########.fr       */
+/*   Created: 2024/12/03 13:51:05 by lduflot           #+#    #+#             */
+/*   Updated: 2024/12/03 13:59:34 by lduflot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char ft_printchar(char c)
+char	ft_printstr(char *str)
 {
-	write(1, &c, 1);
-	return (c);
+	int i;
+	while(str[i])
+	{
+		ft_printchar(str[i]);
+		i++;
+	}
+	return (i);
 }
+

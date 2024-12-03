@@ -6,7 +6,7 @@
 /*   By: lduflot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 11:22:49 by lduflot           #+#    #+#             */
-/*   Updated: 2024/11/29 11:22:57 by lduflot          ###   ########.fr       */
+/*   Updated: 2024/12/03 17:05:16 by lduflot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,46 +16,64 @@
 
 int ft_checkarg(va_arg type, char *c)
 {
+	va_list args;
+	va_arg type;
 
-	if (var_arg == "%c")
-		ft_printchar(c);
-	if (va_arg == "%s")
-		ft_printstr(c);
-	if (va_arg == "%p")
-		ft_printadress( );
-	if (va_arg == "%d");
-		ft_printnbr( );	
-	if (va_arg == "%i");
-		ft_printnbr( );
-	if (va_arg == "%u")
+	if (type[0] == 'c')
+		ft_printchar(c, va_arg(args, int));
+	/*else if (type == 's')
+		ft_printstr(c, va_arg(args, *char));
+	else if (type == 'p')
+		ft_printadress();
+	else if (type == 'd')
+		ft_printnbr(c, va_arg(args, int));	
+	else if (type == 'i')
+		ft_printnbr( ,va_arg(args, int));
+	else if (type == 'u')
 
-	if (va_arg == "%x") // hexademical en minuscule
-		ft_printnbrhexaminus( )
-	if (va_arg == "%X") // hexadecimal en maj
-		ft_printnbrhexamaj( );
-	if (va_arg == "%%") 
-		ft_printchar('%');
+	else if (type == 'x')
+		ft_printhexaminus( va_arg(args, int));
+	else if (type == 'X') 
+		ft_printhexamaj( va_arg(args, int));
+	else if (type == '%') 
+		ft_printchar('%', va_arg(args, char));*/
+	else
+		ft_printf(type[1]);
+}
 
-
-int	ft_printf(const char *format, ...) 
+int	ft_printf(const char *type, ...) 
 {
-	va_start
+	va_list arg;
+	int	i;
+	va_start(arg, type);
 
-	ft_checkarg(va_arg) 
-
-	va_end
+	i = 0;
+	while (type[i] != '\0') 
+	{
+		if (type[i] == '%')
+			ft_checkarg(type[i + 1]);
+		else
+		{
+			write(1, type, 1);
+		}
+		i++;
+	}
+	va_end(arg);
+	return (type[i]);
 }
 
 
 int	main(void)
 {
-	char	testchar = 'S';
-	char	teststr = "ceci est un test";
-	int	testi = 2
-	char test
-	ft_printf("voici le resultat d un c = %c", test);
+	//char	tstchar = 'S';
+//	char	teststr = "ceci est un test";
+//	int	testi = 2;
+
+	ft_printf("voici le resultat d un c =");
 	return(0);
 }
+
+/*
 % -> determine le format desortie
 %c = single char 
 %s = string 
@@ -86,4 +104,4 @@ signaler qu on a fini de lire la liste d arguments
 malloc
 free
 write
-printf (man =  LANG=C man 3 printf )
+printf (man =  LANG=C man 3 printf )*/

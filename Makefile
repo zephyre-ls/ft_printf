@@ -6,7 +6,7 @@
 #    By: lduflot <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/29 15:18:44 by lduflot           #+#    #+#              #
-#    Updated: 2024/11/29 15:18:46 by lduflot          ###   ########.fr        #
+#    Updated: 2024/12/03 15:46:38 by lduflot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,14 +15,21 @@
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-NAME = libftprintf.a
+NAME = ft_printf.a
 
 ###############################
 ##SOURCES
 
 FILES =	ft_printf.c \
+		ft_printadress.c \
+		ft_printhexamaj.c \
+		ft_printhexaminus.c \
+		ft_printnbr.c \
+		ft_atoi.c \
+		ft_printchar.c \
+		ft_printstr.c
 
-OBJS = $(FILES:.c:.o)
+OBJS = $(FILES:.c=.o)
 
 ###############################
 ##RULES
