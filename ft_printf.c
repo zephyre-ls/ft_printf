@@ -14,62 +14,64 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-int ft_checkarg(va_arg type, char *c)
+int ft_checkarg(const char type, va_list *arg)
 {
-	va_list args;
-	va_arg type;
+	int count = 0;
 
-	if (type[0] == 'c')
-		ft_printchar(c, va_arg(args, int));
-	/*else if (type == 's')
-		ft_printstr(c, va_arg(args, *char));
+	if (type == 'c')
+		count = count + ft_printchar(va_arg(*arg, int));
+	else if (type == 's')
+		ft_printstr(va_arg(args, *char));
 	else if (type == 'p')
-		ft_printadress();
+		ft_printadress(va_arg(*arg, );
 	else if (type == 'd')
-		ft_printnbr(c, va_arg(args, int));	
+		ft_printnbr(va_arg(*args, int));	
 	else if (type == 'i')
-		ft_printnbr( ,va_arg(args, int));
+		ft_printnbr(va_arg(*args, int));
 	else if (type == 'u')
-
 	else if (type == 'x')
-		ft_printhexaminus( va_arg(args, int));
+		ft_printhexaminus(va_arg(*args, int));
 	else if (type == 'X') 
-		ft_printhexamaj( va_arg(args, int));
+		ft_printhexamaj(va_arg(*args, int));
 	else if (type == '%') 
-		ft_printchar('%', va_arg(args, char));*/
-	else
-		ft_printf(type[1]);
+		ft_printchar(va_arg(args, char))
+	return (count);
 }
 
 int	ft_printf(const char *type, ...) 
 {
 	va_list arg;
 	int	i;
-	va_start(arg, type);
+	int print;
 
 	i = 0;
+	print = 0;
+	va_start(arg, type);
 	while (type[i] != '\0') 
 	{
 		if (type[i] == '%')
-			ft_checkarg(type[i + 1]);
+		{
+			i++;
+			print = print + ft_checkarg(type[i], &arg);
+		}
 		else
 		{
-			write(1, type, 1);
+			print = print + ft_printchar(type[i]);
 		}
 		i++;
 	}
 	va_end(arg);
-	return (type[i]);
+	return (count);
 }
 
 
 int	main(void)
 {
 	//char	tstchar = 'S';
-//	char	teststr = "ceci est un test";
+	char	teststr = "ceci est un test";
 //	int	testi = 2;
 
-	ft_printf("voici le resultat d un c =");
+	ft_printf("voici le resultat d un c = %s", teststr);
 	return(0);
 }
 
