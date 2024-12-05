@@ -6,7 +6,7 @@
 #    By: lduflot <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/29 15:18:44 by lduflot           #+#    #+#              #
-#    Updated: 2024/12/03 15:46:38 by lduflot          ###   ########.fr        #
+#    Updated: 2024/12/04 16:05:30 by lduflot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ FILES =	ft_printf.c \
 		ft_printnbr.c \
 		ft_atoi.c \
 		ft_printchar.c \
-		ft_printstr.c
+		ft_printstr.c \
+		ft_printnbrunsigned.c 
 
 OBJS = $(FILES:.c=.o)
 

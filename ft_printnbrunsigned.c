@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printstr.c                                      :+:      :+:    :+:   */
+/*   ft_printnbrunsigned.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lduflot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/03 13:51:05 by lduflot           #+#    #+#             */
-/*   Updated: 2024/12/04 13:39:43 by lduflot          ###   ########.fr       */
+/*   Created: 2024/12/04 16:03:33 by lduflot           #+#    #+#             */
+/*   Updated: 2024/12/04 16:09:36 by lduflot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	ft_printstr(char *str)
+char ft_printnbrunsigned(int nb)
 {
-	int i;
+	unsigned int n;
 
-	i = 0;
-	while(str[i])
+	n = nb;
+	if (n >= 0 && n <= 9)
+		ft_printchar(n + '0');
+	else
 	{
-		ft_printchar(str[i]);
-		i++;
+		ft_printnbr(n / 10);
+		ft_printnbr(n % 10);
 	}
-	return (*str);
+return (n);
 }
 

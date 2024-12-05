@@ -6,7 +6,7 @@
 /*   By: lduflot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 13:51:40 by lduflot           #+#    #+#             */
-/*   Updated: 2024/12/03 13:59:09 by lduflot          ###   ########.fr       */
+/*   Updated: 2024/12/04 15:05:49 by lduflot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char ft_printnbr(int nb)
 {
-	long int	n,
+	long long	n;
 	
 	n = nb;
 	if (n < 0)
@@ -29,5 +29,5 @@ char ft_printnbr(int nb)
 		ft_printnbr(n / 10);
 		ft_printnbr(n % 10);
 	}
-return (nb);
+return (n);
 }
