@@ -6,7 +6,7 @@
 /*   By: lduflot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 13:52:40 by lduflot           #+#    #+#             */
-/*   Updated: 2024/12/03 13:58:49 by lduflot          ###   ########.fr       */
+/*   Updated: 2024/12/05 11:33:45 by lduflot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 int	ft_printhexaminus(int nb)
 {
 	long int	n;
-	n = nb;
 
+	n = nb;
 	if (n < 0)
 	{
 		ft_printchar('-');
@@ -35,18 +35,18 @@ int	ft_printhexaminus(int nb)
 		ft_printchar(n + '0');
 	else if (n >= 10 && n <= 15)
 	{
-			if (n == 10)
-				ft_printchar('a');
-			if (n == 11)
-				ft_printchar('b');
-			if (n == 12)
-				ft_printchar('c');
-			if (n == 13)
-				ft_printchar('d');
-			if (n == 14)
-				ft_printchar('e');
-			if (n == 15)
-				ft_printchar('f');
+		if (n == 10)
+			ft_printchar('a');
+		if (n == 11)
+			ft_printchar('b');
+		if (n == 12)
+			ft_printchar('c');
+		if (n == 13)
+			ft_printchar('d');
+		if (n == 14)
+			ft_printchar('e');
+		if (n == 15)
+			ft_printchar('f');
 	}
 	else
 	{

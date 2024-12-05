@@ -6,7 +6,7 @@
 /*   By: lduflot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 11:22:49 by lduflot           #+#    #+#             */
-/*   Updated: 2024/12/04 16:24:47 by lduflot          ###   ########.fr       */
+/*   Updated: 2024/12/05 11:29:37 by lduflot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,41 +14,39 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-int ft_checkarg(const char type, va_list *arg)
+int	ft_checkarg(const char type, va_list *arg)
 {
-	int print = 0;
-
 	if (type == 'c')
-	 ft_printchar(va_arg(*arg, int));
+		ft_printchar(va_arg(*arg, int));
 	else if (type == 's')
-		ft_printstr(va_arg(*arg, char*));
-//	else if (type == 'p')
-//		ft_printadress(va_arg(*arg, char*));
+		ft_printstr(va_arg(*arg, char *));
+	else if (type == 'p')
+		ft_printadress(va_arg(*arg, char *));
 	else if (type == 'd')
-		ft_printnbr(va_arg(*arg, int));	
+		ft_printnbr(va_arg(*arg, int));
 	else if (type == 'i')
 		ft_printnbr(va_arg(*arg, int));
 	else if (type == 'u')
 		ft_printnbrunsigned(va_arg(*arg, int));
 	else if (type == 'x')
 		ft_printhexaminus(va_arg(*arg, int));
-	else if (type == 'X') 
+	else if (type == 'X')
 		ft_printhexamaj(va_arg(*arg, int));
-	else if (type == '%') 
+	else if (type == '%')
 		ft_printchar(va_arg(*arg, int));
-	return (print);
+	return (type);
 }
 
-int	ft_printf(const char *type, ...) 
+int	ft_printf(const char *type, ...)
 {
-	va_list arg;
-	int	i;
-	int print;
+	va_list	arg;
+	int		i;
+	int		print;
 
 	i = 0;
 	print = 0;
 	va_start(arg, type);
-	while (type[i] != '\0') 
+	while (type[i] != '\0')
 	{
 		if (type[i] == '%')
 		{
@@ -64,7 +62,7 @@ int	ft_printf(const char *type, ...)
 	va_end(arg);
 	return (print);
 }
-
+/*
 #include <stdio.h>
 
 int	main(void)
@@ -77,7 +75,8 @@ int	main(void)
 	char	testadresse[200] = "trouve mon adresse";
 	int testdecimal = 100;
 	int testint = 100;
-	int testunsigned = 100000000; //valeur max unsigned int =  4294967295, si user ecrit neg renvoie la valeur max
+	int testunsigned = 100000000; 
+	//valeur max unsigned int =  4294967295, si user ecrit neg renvoie la valeur max
 
 	char testpointeur[10] = "adresse";
 
@@ -90,10 +89,11 @@ int	main(void)
 	ft_printf("voici le resultat d un d = %d\n", testdecimal);
 	ft_printf("voici le resultat d un i = %i\n", testint);
 	ft_printf("voici le resultat d un u = %u\n", testunsigned);
-
+	
+	ft_printf("voici le c %c\n voici le s %s\n", testchar, teststr);
 	printf("voici le resultat d un p = %p\n", testpointeur);
 	return(0);
-}
+}*/
 
 /*
 % -> determine le format desortie

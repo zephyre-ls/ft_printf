@@ -6,13 +6,13 @@
 /*   By: lduflot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 13:56:40 by lduflot           #+#    #+#             */
-/*   Updated: 2024/12/04 13:47:44 by lduflot          ###   ########.fr       */
+/*   Updated: 2024/12/05 11:30:15 by lduflot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char ft_printchar(char c)
+char	ft_printchar(char c)
 {
 	write(1, &c, 1);
 	return (c);
