@@ -6,7 +6,7 @@
 /*   By: lduflot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 13:52:40 by lduflot           #+#    #+#             */
-/*   Updated: 2024/12/05 11:33:45 by lduflot          ###   ########.fr       */
+/*   Updated: 2024/12/05 14:32:14 by lduflot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,30 @@
 //nb - (quotient entier * 16) = reste 
 //ex = 75/16 = 4 ; 75 -(4*16) = 11 = 4B (car b = 11)
 /////////////////////////////////////////////////////////////////////////////
-
+/**
+	* @brief description de la fontion
+	* @params exemple: nb signifie le nombre donne en parametre
+	* @return example: return an in who's the number of bytes writed.
+	* etc. lolol kiss kiss xoxo 
+	*/
 #include "ft_printf.h"
+
+int	*ft_printlettre(long int	*n)
+{
+	if (*n == 10)
+		ft_printchar('a');
+	if (*n == 11)
+		ft_printchar('b');
+	if (*n == 12)
+		ft_printchar('c');
+	if (*n == 13)
+		ft_printchar('d');
+	if (*n == 14)
+		ft_printchar('e');
+	if (*n == 15)
+		ft_printchar('f');
+	return ((int *) n);
+}
 
 int	ft_printhexaminus(int nb)
 {
@@ -34,20 +56,7 @@ int	ft_printhexaminus(int nb)
 	else if (n >= 0 && n <= 9)
 		ft_printchar(n + '0');
 	else if (n >= 10 && n <= 15)
-	{
-		if (n == 10)
-			ft_printchar('a');
-		if (n == 11)
-			ft_printchar('b');
-		if (n == 12)
-			ft_printchar('c');
-		if (n == 13)
-			ft_printchar('d');
-		if (n == 14)
-			ft_printchar('e');
-		if (n == 15)
-			ft_printchar('f');
-	}
+		ft_printlettre(&n);
 	else
 	{
 		ft_printhexaminus(n / 16);

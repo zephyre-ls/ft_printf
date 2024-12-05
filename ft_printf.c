@@ -6,7 +6,7 @@
 /*   By: lduflot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 11:22:49 by lduflot           #+#    #+#             */
-/*   Updated: 2024/12/05 11:29:37 by lduflot          ###   ########.fr       */
+/*   Updated: 2024/12/05 14:00:09 by lduflot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	ft_checkarg(const char type, va_list *arg)
 		ft_printchar(va_arg(*arg, int));
 	else if (type == 's')
 		ft_printstr(va_arg(*arg, char *));
-	else if (type == 'p')
-		ft_printadress(va_arg(*arg, char *));
+//	else if (type == 'p')
+//		ft_printadress(va_arg(*arg, char *));
 	else if (type == 'd')
 		ft_printnbr(va_arg(*arg, int));
 	else if (type == 'i')
@@ -62,15 +62,15 @@ int	ft_printf(const char *type, ...)
 	va_end(arg);
 	return (print);
 }
-/*
+
 #include <stdio.h>
 
 int	main(void)
 {
 	char	testchar = 'S';
 	char	teststr[50] = "ceci est un test";
-	int	testhexaminus = 255;
-	int	testhexamaj = 255;
+	int	testhexaminus = 2556000;
+	int	testhexamaj = 255666666;
 	char	testpourcent = '%';
 	char	testadresse[200] = "trouve mon adresse";
 	int testdecimal = 100;
@@ -93,7 +93,7 @@ int	main(void)
 	ft_printf("voici le c %c\n voici le s %s\n", testchar, teststr);
 	printf("voici le resultat d un p = %p\n", testpointeur);
 	return(0);
-}*/
+}
 
 /*
 % -> determine le format desortie

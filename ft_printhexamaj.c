@@ -6,11 +6,28 @@
 /*   By: lduflot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 13:54:11 by lduflot           #+#    #+#             */
-/*   Updated: 2024/12/05 11:32:31 by lduflot          ###   ########.fr       */
+/*   Updated: 2024/12/05 13:32:53 by lduflot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	*ft_printletter(long int	*n)
+{
+	if (*n == 10)
+		ft_printchar('A');
+	if (*n == 11)
+		ft_printchar('B');
+	if (*n == 12)
+		ft_printchar('C');
+	if (*n == 13)
+		ft_printchar('D');
+	if (*n == 14)
+		ft_printchar('E');
+	if (*n == 15)
+		ft_printchar('F');
+	return ((int *) n);
+}
 
 int	ft_printhexamaj(int nb)
 {
@@ -25,20 +42,7 @@ int	ft_printhexamaj(int nb)
 	else if (n >= 0 && n <= 9)
 		ft_printchar(n + '0');
 	else if (n >= 10 && n <= 15)
-	{
-		if (n == 10)
-			ft_printchar('A');
-		if (n == 11)
-			ft_printchar('B');
-		if (n == 12)
-			ft_printchar('C');
-		if (n == 13)
-			ft_printchar('D');
-		if (n == 14)
-			ft_printchar('E');
-		if (n == 15)
-			ft_printchar('F');
-	}
+		ft_printletter(&n);
 	else
 	{
 		ft_printhexamaj(n / 16);

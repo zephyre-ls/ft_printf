@@ -6,7 +6,7 @@
 /*   By: lduflot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 13:57:21 by lduflot           #+#    #+#             */
-/*   Updated: 2024/12/05 11:19:49 by lduflot          ###   ########.fr       */
+/*   Updated: 2024/12/05 15:15:02 by lduflot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,27 +40,16 @@ int	ft_len(char *adress)
 	return (adresse);
 }*/
 
-int	ft_printadress(char adress) 
+int	ft_printadress(int	adress)
 {
-	/*
-	1 - Afficher adresse avec &
-	2 - Ajouter le prefixe 0x
-	3 - Conversion en hexadecimal minus
-
-Besoin de = ft_printfhexaminus 
-						ft_printstr 
-*/
-	char *p;
-	p = &adress;
-	p = ft_printhexaminus(&adress);
-	//while (adress != '\0')
-//	{
-		
-
-	//}
+	long int	*p;
 	
-	//write(1, "0x", 2);
-	return(p);
+	p = NULL;
+	p = write(1, "0x", 2);
+
+	ft_printhexaminus(adress);
+	p = p + adress;
+	return ((int )p);
 }
 
 #include <stdio.h>
@@ -69,5 +58,4 @@ int	main(void)
 {
 	char test = 'c';
 	ft_printadress(test);
-
 }
