@@ -12,17 +12,19 @@
 
 #include "ft_printf.h"
 
-char	ft_printnbrunsigned(int nb)
+int	ft_printnbrunsigned(int nb)
 {
 	unsigned int	n;
+	int count;
 
+	count = 0;
 	n = nb;
-	if (n >= 0 && n <= 9)
-		ft_printchar(n + '0');
+	if (n <= 9)
+		count = count + ft_printchar(n + '0');
 	else
 	{
-		ft_printnbr(n / 10);
-		ft_printnbr(n % 10);
+		count = count + ft_printnbr(n / 10);
+		count = count + ft_printnbr(n % 10);
 	}
-	return (n);
+	return (count);
 }

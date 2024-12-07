@@ -18,44 +18,20 @@
 // prefixe 0x (indique que les valeurs apres sont ecritent en hexadecimal 
 // &
 
-int	ft_len(char *adress)
+
+int	ft_printadress(void	*adress)
 {
-	int i;
-
-	i = 0;
-	while (adress[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
-
-/*char	ft_mallocadress(char *adress)
-{
-	int len;
-	char adresse;
-
-	len = ft_len(adress);
-	adresse = malloc(sizeof(int *) * len + 2); 
-	return (adresse);
-}*/
-
-int	ft_printadress(int	adress)
-{
-	long int	*p;
+	unsigned long int	p = (unsigned long)adress;
 	
-	p = NULL;
 	p = write(1, "0x", 2);
-
-	ft_printhexaminus(adress);
-	p = p + adress;
-	return ((int )p);
+	ft_printhexaminus(p);
+	return (0);
 }
-
+/*
 #include <stdio.h>
 
 int	main(void)
 {
 	char test = 'c';
 	ft_printadress(test);
-}
+}*/

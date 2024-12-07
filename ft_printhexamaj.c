@@ -12,41 +12,43 @@
 
 #include "ft_printf.h"
 
-int	*ft_printletter(long int	*n)
+int	ft_printletter(long long int	nb)
 {
-	if (*n == 10)
-		ft_printchar('A');
-	if (*n == 11)
-		ft_printchar('B');
-	if (*n == 12)
-		ft_printchar('C');
-	if (*n == 13)
-		ft_printchar('D');
-	if (*n == 14)
-		ft_printchar('E');
-	if (*n == 15)
-		ft_printchar('F');
-	return ((int *) n);
+	if (nb == 10)
+		return (ft_printchar('A'));
+	if (nb == 11)
+		return (ft_printchar('B'));
+	if (nb == 12)
+		return (ft_printchar('C'));
+	if (nb == 13)
+		return (ft_printchar('D'));
+	if (nb == 14)
+		return (ft_printchar('E'));
+	if (nb == 15)
+		return (ft_printchar('F'));
+	return (0);
 }
 
-int	ft_printhexamaj(int nb)
+int	ft_printhexamaj(long long int nb)
 {
-	long int	n;
+	int count;
 
-	n = nb;
-	if (n < 0)
+	count = 0;
+	if (nb == 0)
+		return (write(1, "0", 1));
+	if (nb < 0)
 	{
-		ft_printchar('-');
-		ft_printhexamaj(n * (-1));
+		count = count + ft_printchar('-');
+		nb = -nb;
 	}
-	else if (n >= 0 && n <= 9)
-		ft_printchar(n + '0');
-	else if (n >= 10 && n <= 15)
-		ft_printletter(&n);
+	else if (nb >= 0 && nb <= 9)
+		count = count + ft_printchar(nb + '0');
+	else if (nb >= 10 && nb <= 15)
+		count = count + ft_printletter(nb);
 	else
 	{
-		ft_printhexamaj(n / 16);
-		ft_printhexamaj(n % 16);
+		count = count + ft_printhexamaj(nb / 16);
+		count = count + ft_printhexamaj(nb % 16);
 	}
-	return (n);
+	return (count);
 }

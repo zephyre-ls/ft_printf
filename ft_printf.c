@@ -16,25 +16,26 @@
 
 int	ft_checkarg(const char type, va_list *arg)
 {
+	int print;
+	
+	print = 0;
 	if (type == 'c')
-		ft_printchar(va_arg(*arg, int));
+		print = print + ft_printchar(va_arg(*arg, int));
 	else if (type == 's')
-		ft_printstr(va_arg(*arg, char *));
-//	else if (type == 'p')
-//		ft_printadress(va_arg(*arg, char *));
-	else if (type == 'd')
-		ft_printnbr(va_arg(*arg, int));
-	else if (type == 'i')
-		ft_printnbr(va_arg(*arg, int));
+		print = print + ft_printstr(va_arg(*arg, char *));
+	else if (type == 'p')
+		print = print + ft_printadress(va_arg(*arg, void*));
+	else if (type == 'd' || type == 'i')
+		print = print + ft_printnbr(va_arg(*arg, int));
 	else if (type == 'u')
-		ft_printnbrunsigned(va_arg(*arg, int));
+		print = print + ft_printnbrunsigned(va_arg(*arg, int));
 	else if (type == 'x')
-		ft_printhexaminus(va_arg(*arg, int));
+		print = print + ft_printhexaminus(va_arg(*arg, long long int));
 	else if (type == 'X')
-		ft_printhexamaj(va_arg(*arg, int));
+		print = print + ft_printhexamaj(va_arg(*arg, long long int));
 	else if (type == '%')
-		ft_printchar(va_arg(*arg, int));
-	return (type);
+		print = print + ft_printchar('%');
+	return (print);
 }
 
 int	ft_printf(const char *type, ...)
@@ -62,19 +63,19 @@ int	ft_printf(const char *type, ...)
 	va_end(arg);
 	return (print);
 }
-
+/*
 #include <stdio.h>
 
 int	main(void)
 {
 	char	testchar = 'S';
 	char	teststr[50] = "ceci est un test";
-	int	testhexaminus = 2556000;
-	int	testhexamaj = 255666666;
+	long long int	testhexaminus = 25560077799990;
+	int	testhexamaj = 2556669996;
 	char	testpourcent = '%';
 	char	testadresse[200] = "trouve mon adresse";
-	int testdecimal = 100;
-	int testint = 100;
+	int testdecimal = -10;
+	int testint = -9;
 	int testunsigned = 100000000; 
 	//valeur max unsigned int =  4294967295, si user ecrit neg renvoie la valeur max
 
@@ -93,7 +94,7 @@ int	main(void)
 	ft_printf("voici le c %c\n voici le s %s\n", testchar, teststr);
 	printf("voici le resultat d un p = %p\n", testpointeur);
 	return(0);
-}
+}*/
 
 /*
 % -> determine le format desortie

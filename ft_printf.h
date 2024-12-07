@@ -17,12 +17,12 @@
 # include "ft_printf.h"
 
 int		ft_printf(const char *, ...);
-int		ft_printhexamaj(int nb);
-int		ft_printadress(int adress);
+int		ft_printhexamaj(long long int nb);
+int		ft_printadress(void *adress);
 int		ft_printhexaminus(int nb);
-char	ft_printnbr(int nb);
-char	ft_printchar(char c);
-char	ft_printstr(char *str);
-char	ft_printnbrunsigned(int nb);
+int	ft_printnbr(int nb);
+int	ft_printchar(char c);
+int	ft_printstr(char *str);
+int	ft_printnbrunsigned(int nb);
 
 #endif

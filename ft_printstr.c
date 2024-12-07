@@ -12,15 +12,15 @@
 
 #include "ft_printf.h"
 
-char	ft_printstr(char *str)
+int	ft_printstr(char *str)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	while (str[i] != '\0')
+	count = 0;
+	while (str[count] != '\0')
 	{
-		ft_printchar(str[i]);
-		i++;
+		ft_printchar(str[count]);
+		count++;
 	}
-	return (*str);
+	return (count);
 }
