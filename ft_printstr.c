@@ -17,6 +17,12 @@ int	ft_printstr(char *str)
 	int	count;
 
 	count = 0;
+	if (str == NULL)
+	{
+		write(1, "(null)", 6);
+		count = count + 6;
+		return (count);
+	}
 	while (str[count] != '\0')
 	{
 		ft_printchar(str[count]);

@@ -24,9 +24,44 @@
 	* @return example: return an in who's the number of bytes writed.
 	* etc. lolol kiss kiss xoxo 
 	*/
+
 #include "ft_printf.h"
 
-int	ft_printlettre(long long int	nb)
+/*long long int	ft_complement2(long long int n);
+
+void	ft_printbinaire(long long int n)
+{
+	if (n > 1)
+	{
+		ft_printbinaire(n / 2);
+	}
+	ft_printhexaminus(n % 2 + '0');
+}
+
+long long int ft_complement2(long long int n)
+{
+	unsigned long long int nb = (long long int)n;
+	
+	if (nb > 1)
+	{
+		ft_complement2(nb / 2);
+	}
+	ft_printchar(nb % 2 + '0');
+
+	if (nb == 0)
+		nb = 1;
+	else if (nb == 1)
+		nb = 0;
+	return (nb);
+}
+
+long long int	ft_addone(long long int n)
+{
+	n = n + 1;
+	return (n);
+}
+*/
+int	ft_printlettre(long long int nb)
 {
 	if (nb == 10)
 		return (ft_printchar('a'));
@@ -45,26 +80,42 @@ int	ft_printlettre(long long int	nb)
 
 int	ft_printhexaminus(int nb)
 {
-	int count;
-	long long int n;
+	int				count;
+	unsigned int	n;
 
-	n = nb;
 	count = 0;
+	if (nb < 0)
+		n = (unsigned int) nb;
+	else
+		n = (unsigned int) nb;
 	if (n == 0)
-		return (write(1, "0", 1));
-	if (n < 0)
 	{
-		count = count + ft_printchar('-');
-		n = -n;
+		write(1, "0", 1);
+		count = 1;
+		return (count);
 	}
-	else if (n >= 0 && n <= 9)
+	if (n > 0 && n <= 9)
 		count = count + ft_printchar(n + '0');
 	else if (n >= 10 && n <= 15)
 		count = count + ft_printlettre(n);
-	else
+	else if (n >= 16)
 	{
 		count = count + ft_printhexaminus(n / 16);
 		count = count + ft_printhexaminus(n % 16);
 	}
 	return (count);
 }
+
+/*#include <stdio.h>
+
+int	main(void)
+{
+	//int test1 = -255;
+	long long int test = -255;
+	int test2 = 255;
+
+	ft_printhexaminus(test);
+	printf("\ntest neg:%llX\n", (long long int)test);
+	printf("test pos:%X\n", test2);
+	return (0);
+}*/

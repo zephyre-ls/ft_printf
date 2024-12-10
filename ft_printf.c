@@ -16,52 +16,52 @@
 
 int	ft_checkarg(const char type, va_list *arg)
 {
-	int print;
-	
-	print = 0;
+	int	count;
+
+	count = 0;
 	if (type == 'c')
-		print = print + ft_printchar(va_arg(*arg, int));
+		count = count + ft_printchar(va_arg(*arg, int));
 	else if (type == 's')
-		print = print + ft_printstr(va_arg(*arg, char *));
+		count = count + ft_printstr(va_arg(*arg, char *));
 	else if (type == 'p')
-		print = print + ft_printadress(va_arg(*arg, void*));
+		count = count + ft_printadress(va_arg(*arg, void *));
 	else if (type == 'd' || type == 'i')
-		print = print + ft_printnbr(va_arg(*arg, int));
+		count = count + ft_printnbr(va_arg(*arg, int));
 	else if (type == 'u')
-		print = print + ft_printnbrunsigned(va_arg(*arg, int));
+		count = count + ft_printnbrunsigned(va_arg(*arg, int));
 	else if (type == 'x')
-		print = print + ft_printhexaminus(va_arg(*arg, long long int));
+		count = count + ft_printhexaminus(va_arg(*arg, int));
 	else if (type == 'X')
-		print = print + ft_printhexamaj(va_arg(*arg, long long int));
+		count = count + ft_printhexamaj(va_arg(*arg, int));
 	else if (type == '%')
-		print = print + ft_printchar('%');
-	return (print);
+		count = count + ft_printchar('%');
+	return (count);
 }
 
 int	ft_printf(const char *type, ...)
 {
 	va_list	arg;
 	int		i;
-	int		print;
+	int		count;
 
 	i = 0;
-	print = 0;
+	count = 0;
 	va_start(arg, type);
 	while (type[i] != '\0')
 	{
 		if (type[i] == '%')
 		{
 			i++;
-			print = print + ft_checkarg(type[i], &arg);
+			count = count + ft_checkarg(type[i], &arg);
 		}
 		else
 		{
-			print = print + ft_printchar(type[i]);
+			count = count + ft_printchar(type[i]);
 		}
 		i++;
 	}
 	va_end(arg);
-	return (print);
+	return (count);
 }
 /*
 #include <stdio.h>
@@ -77,7 +77,8 @@ int	main(void)
 	int testdecimal = -10;
 	int testint = -9;
 	int testunsigned = 100000000; 
-	//valeur max unsigned int =  4294967295, si user ecrit neg renvoie la valeur max
+	//valeur max unsigned int =  4294967295, 
+	//si user ecrit neg renvoie la valeur max
 
 	char testpointeur[10] = "adresse";
 
@@ -110,12 +111,16 @@ int	main(void)
 
 
 
-FONCTION VARIADIQUE = accepte un nombre variable d arguments contrairement au ft creer depuis le debut
-
+FONCTION VARIADIQUE = accepte un nombre variable 
+d arguments 
+contrairement au ft creer depuis le debut
 void	va_start(va_list ap, last)
-	= initialise ap pour les futures utilisations de vaarg et vaend. A appele en 1er.
-	Param last = nom du dernier parametre donc la ft connait le type
-	Adresse de ne doit pas etre declare comme une variable en registre, ni comme un type de fonction ou tableau
+	= initialise ap pour les futures utilisations de 
+	vaarg et vaend. A appele en 1er.
+Param last = nom du dernier parametre donc la 
+ft connait le type
+	Adresse de ne doit pas etre declare comme une variable en registre, 
+	ni comme un type de fonction ou tableau
 = commence a parcourir la liste d arguments passe a notre fonction
 type	va_arg(va_list ap, type) 
 						= recuperer un argument de cette liste a chaque appel

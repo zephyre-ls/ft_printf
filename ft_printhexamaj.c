@@ -12,7 +12,41 @@
 
 #include "ft_printf.h"
 
-int	ft_printletter(long long int	nb)
+/*long long int	ft_complement2(long long int n);
+
+void	ft_printbinaire(long long int n)
+{
+	if (n > 1)
+	{
+		ft_printbinaire(n / 2);
+	}
+	ft_printhexamaj(n % 2 + '0');
+}
+
+long long int ft_complement2(long long int n)
+{
+	unsigned long long int nb = (long long int)n;
+	
+	if (nb > 1)
+	{
+		ft_complement2(nb / 2);
+	}
+	ft_printchar(nb % 2 + '0');
+
+	if (nb == 0)
+		nb = 1;
+	else if (nb == 1)
+		nb = 0;
+	return (nb);
+}
+
+long long int	ft_addone(long long int n)
+{
+	n = n + 1;
+	return (n);
+}
+*/
+int	ft_printletter(long long int nb)
 {
 	if (nb == 10)
 		return (ft_printchar('A'));
@@ -29,26 +63,44 @@ int	ft_printletter(long long int	nb)
 	return (0);
 }
 
-int	ft_printhexamaj(long long int nb)
+int	ft_printhexamaj(int nb)
 {
-	int count;
+	int				count;
+	unsigned int	n;
 
 	count = 0;
-	if (nb == 0)
-		return (write(1, "0", 1));
 	if (nb < 0)
-	{
-		count = count + ft_printchar('-');
-		nb = -nb;
-	}
-	else if (nb >= 0 && nb <= 9)
-		count = count + ft_printchar(nb + '0');
-	else if (nb >= 10 && nb <= 15)
-		count = count + ft_printletter(nb);
+		n = (unsigned int) nb;
 	else
+		n = (unsigned int) nb;
+	if (n == 0)
 	{
-		count = count + ft_printhexamaj(nb / 16);
-		count = count + ft_printhexamaj(nb % 16);
+		write(1, "0", 1);
+		count = 1;
+		return (count);
+	}
+	if (n > 0 && n <= 9)
+		count = count + ft_printchar(n + '0');
+	else if (n >= 10 && n <= 15)
+		count = count + ft_printletter(n);
+	else if (n >= 16)
+	{
+		count = count + ft_printhexamaj(n / 16);
+		count = count + ft_printhexamaj(n % 16);
 	}
 	return (count);
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	//int test1 = -255;
+	long long int test = -255;
+	int test2 = 255;
+
+	ft_printhexamaj(test);
+	printf("\ntest neg:%llX\n", (long long int)test);
+	printf("test pos:%X\n", test2);
+	return (0);
+}*/

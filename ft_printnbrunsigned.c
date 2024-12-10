@@ -15,7 +15,7 @@
 int	ft_printnbrunsigned(int nb)
 {
 	unsigned int	n;
-	int count;
+	int				count;
 
 	count = 0;
 	n = nb;
