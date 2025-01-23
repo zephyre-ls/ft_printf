@@ -69,10 +69,7 @@ int	ft_printhexamaj(int nb)
 	unsigned int	n;
 
 	count = 0;
-	if (nb < 0)
-		n = (unsigned int) nb;
-	else
-		n = (unsigned int) nb;
+	n = (unsigned int) nb;
 	if (n == 0)
 	{
 		write(1, "0", 1);
